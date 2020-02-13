@@ -77,7 +77,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("result:", res)
 	token = res.AccessToken
 	fmt.Println("write token")
-	f := os.OpenFile("tokens", os.O_APPEND|os.O_WRONLY, 0644) 
+	f,_ := os.OpenFile("tokens", os.O_APPEND|os.O_WRONLY, 0644) 
 	f.WriteString(token) 
 	f.Close()
 	fmt.Println("write token done")
